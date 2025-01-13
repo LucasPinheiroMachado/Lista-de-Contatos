@@ -2,7 +2,7 @@
 
   require_once './db/conn.php';
 
-  $sql = 'SELECT * FROM contato';
+  $sql = 'SELECT * FROM contato ORDER BY nome';
 
   $ps = $pdo->query($sql);
 
@@ -19,7 +19,7 @@
   </head>
   <body>
     <h1>Lista de contatos:</h1>
-    <a href="form-cadastro.php">Adicionar contato</a>
+    <a href="form-cadastro.php" id="link-add">Adicionar contato</a>
     <ul>
     <?php
       foreach($contatos as $contato){
@@ -29,7 +29,7 @@
         $urlRemocao = '/remover.php?id=' . $contato['id'];
         $linkRemocao = '<a href="' . $urlRemocao . '" >Remover</a>';
         echo <<<HTML
-          <li>Nome: $contato[nome] | Telefone: $contato[telefone] $linkAlteracao $linkRemocao</a></li>
+          <li><div id='nameTel'><div>Nome: $contato[nome] </div> <span id='sep'>|</span> <div>Telefone: $contato[telefone]</div></div> <div id='containerLinks'> $linkAlteracao $linkRemocao</a></div></li>
         HTML;
       }
     ?>

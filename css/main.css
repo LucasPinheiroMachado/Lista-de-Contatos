@@ -1,80 +1,214 @@
+/* Corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  h1, h2 {
-    color: #4a90e2;
-  }
-  
-  a {
-    color: #4a90e2;
-    text-decoration: none;
-    margin-left: 10px;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    background: #fff;
-    border: 1px solid #ddd;
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #2a3b6d, #1d2a47);
+  color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 15px; /* Padding nas laterais */
+}
+
+/* Títulos */
+h1,
+h2 {
+  color: #5e99e6;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 20px; /* Espaçamento entre o título e o botão */
+}
+
+/* Links */
+a {
+  color: #5e99e6;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+#link-add {
+  margin-bottom: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #88b5e8;
+}
+
+/* Lista */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Contatos */
+li {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  margin-bottom: 25px; /* Espaçamento maior entre os contatos */
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#nameTel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+#sep{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+button.edit,
+button.remove {
+  margin-left: 15px;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.edit:hover,
+button.remove:hover {
+  background-color: #d45e51;
+}
+
+/* Botão Adicionar Contato */
+button.add-contact {
+  background-color: #5e99e6;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 20px; /* Espaçamento entre os contatos e o botão */
+}
+
+button.add-contact:hover {
+  background-color: #357ab8;
+  transform: translateY(-2px);
+}
+
+/* Contêiner do formulário */
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+/* Estilos para o formulário */
+form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  max-width: 450px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  transition: all 0.3s ease;
+}
+
+form:hover {
+  transform: translateY(-5px);
+}
+
+/* Inputs */
+input[type='text'],
+input[type='tel'] {
+  width: calc(100% - 20px);
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='tel']:focus {
+  border-color: #5e99e6;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Centralizando o botão enviar */
+button[type='submit'] {
+  background-color: #5e99e6;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #357ab8;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
     padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  button {
-    background-color: #4a90e2;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #357ab8;
-  }
-  
-  .form-container {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
   }
 
   form {
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    max-width: 400px;
+    width: 90%;
+    max-width: none;
   }
-  
-  input[type="text"], input[type="tel"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+
+  button {
+    padding: 10px 20px;
     font-size: 14px;
   }
-  
+
+  li {
+    flex-direction: column;
+    align-items: center;
+  }
+  #nameTel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #sep {
+    display: none;
+  }
+}
